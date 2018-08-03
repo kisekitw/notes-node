@@ -45,7 +45,11 @@ var getNote = (title) => {
 };
 
 var removeNote = (title) => {
-    console.log('Remove a note', title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter((note) => note.title !== title);
+    saveNodes(filteredNotes);
+
+    return notes.length !== filteredNotes.length;
 }
 
 // Must be the last to the Method definition
