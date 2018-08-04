@@ -1,5 +1,3 @@
-console.log('Starting notes.js')
-
 const fs = require('fs');
 
 var fetchNotes = () => {
@@ -14,7 +12,6 @@ var fetchNotes = () => {
 var saveNodes = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
-
 
 // module.exports.addNote = (title, body) => {
 //     console.log('addNote');
@@ -37,7 +34,7 @@ var addNote = (title, body) => {
 };
 
 var getAll = () => {
-    console.log('Getting all notes');
+    return fetchNotes();
 };
 
 var getNote = (title) => {
@@ -57,7 +54,7 @@ var removeNote = (title) => {
 }
 
 var logNote = (note) => {
-    console.log('------------');
+    console.log('------------!');
     console.log(`Title: ${note.title}, Body: ${note.body}`);
 };
 
