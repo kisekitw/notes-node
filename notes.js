@@ -41,7 +41,11 @@ var getAll = () => {
 };
 
 var getNote = (title) => {
-    console.log('Read a note', title);
+    var notes = fetchNotes();
+    
+    var filteredNote = notes.filter((note) => note.title === title);
+    return filteredNote[0];
+
 };
 
 var removeNote = (title) => {
@@ -52,12 +56,18 @@ var removeNote = (title) => {
     return notes.length !== filteredNotes.length;
 }
 
+var logNote = (note) => {
+    console.log('------------');
+    console.log(`Title: ${note.title}, Body: ${note.body}`);
+};
+
 // Must be the last to the Method definition
 module.exports = {
     addNote: addNote, //=== addNote
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 };
  
 
